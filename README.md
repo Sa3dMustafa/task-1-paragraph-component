@@ -68,12 +68,3 @@ npm run preview
 - `src/components/ui/UIBlock.tsx` — helper wrapper for rendering UI blocks dynamically
 - `src/lib/utils.ts` — utility helpers for class string merging
 
-## Notes
-
-- The project uses Vite for fast development and Hot Module Replacement (HMR).
-- Styling is built around utility classes and dynamic variant configuration.
-- The component props are strongly typed using TypeScript and `class-variance-authority`.
-
-## License
-
-This project is provided as-is for learning and experimentation.
