@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Custom Component Playground
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + TypeScript + Vite project demonstrating reusable UI components built with Tailwind CSS class utilities, Radix Slot support, and variant-driven styling using `class-variance-authority`.
 
-Currently, two official plugins are available:
+## Project description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This repository contains a lightweight component library and demo app that showcases:
 
-## React Compiler
+- a reusable `Paragraph` component with variant and size styling
+- a customizable `Button` component with variant and size options
+- support for `asChild` rendering via Radix `Slot`
+- Tailwind-compatible class merging with `clsx` and `tailwind-merge`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app is ideal for learning how to build typed component APIs in React and create consistent visual building blocks for UIs.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `Paragraph` component
+  - variants: `default`, `success`, `warning`, `error`
+  - sizes: `default`, `sm`, `lg`, `xl`, `2xl`, `3xl`
+  - supports `asChild` to render custom wrapper elements
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `Button` component
+  - variants: `default`, `primary`, `secondary`, `outLine`, `denger`, `success`
+  - sizes: `default`, `sm`, `md`, `lg`, `xl`
+  - supports `asChild` via Radix Slot
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `UIBlock` helper component that selects the right component based on a `type` prop
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting started
+
+### Requirements
+
+- Node.js 18+
+- npm
+
+### Install dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Open the URL shown in the terminal to view the demo app.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview the production build
+
+```bash
+npm run preview
+```
+
+## Project structure
+
+- `src/App.tsx` — demo page showing `Paragraph` and `Button` variations
+- `src/components/ui/Paragraph.tsx` — paragraph component with variant-based styling
+- `src/components/ui/Button.tsx` — button component with variant-based styling
+- `src/components/ui/UIBlock.tsx` — helper wrapper for rendering UI blocks dynamically
+- `src/lib/utils.ts` — utility helpers for class string merging
+
+## Notes
+
+- The project uses Vite for fast development and Hot Module Replacement (HMR).
+- Styling is built around utility classes and dynamic variant configuration.
+- The component props are strongly typed using TypeScript and `class-variance-authority`.
+
+## License
+
+This project is provided as-is for learning and experimentation.
