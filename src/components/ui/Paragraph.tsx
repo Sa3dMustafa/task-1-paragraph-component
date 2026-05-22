@@ -41,15 +41,17 @@ export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
       size = "default",
       asChild = false,
       ...props
-    }
+    },
+    ref,
   ) => {
     const Comp = asChild ? Slot : "p";
 
     return (
       <Comp
-        data-slot="paragraph"
+        // data-slot="paragraph"
         data-variant={variant}
         data-size={size}
+        ref={ref}
         className={cn(paragraphVariants({ variant, size }), className)}
         {...props}
       />
